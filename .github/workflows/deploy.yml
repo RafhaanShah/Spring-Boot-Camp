@@ -18,7 +18,13 @@ jobs:
     
     - uses: akhileshns/heroku-deploy@v3.5.7
       with:
+        usedocker: true
         heroku_api_key: ${{secrets.HEROKU_API_KEY}}
         heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
         heroku_email:  ${{secrets.HEROKU_EMAIL}}
-        usedocker: true
+        healthcheck: ${{secrets.HEROKU_HEALTH_URL}}
+        checkstring: '{"status":"UP"}'
+        rollbackonhealthcheckfailed: true
+        delay: 30
+        
+        
