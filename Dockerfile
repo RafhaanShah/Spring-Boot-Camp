@@ -7,7 +7,8 @@ FROM openjdk:8-jdk-alpine AS run
 RUN addgroup -S spring && adduser -S spring -G spring
 USER spring:spring
 COPY --from=build /home/gradle/src/build/libs/*.jar /app/app.jar
-EXPOSE 8080/tcp
-HEALTHCHECK --interval=30s --timeout=3s \
-  CMD curl -f http://localhost/actuator/health || exit 1
+
+ENV PORT=8080
+HEALTHCHECK --interval=1m --timeout=10s \
+  CMD wget --spider http://localhost:${PORT}/actuator/health || exit 1
 ENTRYPOINT ["java", "-jar", "app/app.jar"]
