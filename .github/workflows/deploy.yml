@@ -4,11 +4,8 @@
 name: Deploy to Heroku
 
 on:
-  workflow_run:
-    workflows: ["Publish Docker Image"]
-    branches: [main]
-    types: 
-      - completed
+  release:
+    types: [published]
         
 jobs:
   deploy_to_heroku:
