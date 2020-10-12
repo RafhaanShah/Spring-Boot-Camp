@@ -1,7 +1,9 @@
 # Spring Boot Demo
 
-[![GitHub CI][github-ci-img]][github-ci-link] [![GitHub Version][github-version-img]][github-version-link]
-[![Docker Image Size][docker-size-img]][docker-size-link] [![Heroku][heroku-img]][heroku-link]
+[![GitHub CI][github-ci-img]][github-ci-link]
+[![GitHub Version][github-version-img]][github-version-link]
+[![Docker Image Size][docker-size-img]][docker-size-link]
+[![Heroku][heroku-img]][heroku-link]
 
 Demo [Spring Boot](https://spring.io/projects/spring-boot) application with [Docker](https://www.docker.com/) and [GitHub Actions](https://github.com/features/actions) CI, deployed on [Heroku](https://dashboard.heroku.com/).
 
@@ -11,5 +13,5 @@ Demo [Spring Boot](https://spring.io/projects/spring-boot) application with [Doc
 [github-version-link]: https://github.com/RafhaanShah/Spring-Boot-Camp/releases
 [docker-size-img]: https://img.shields.io/docker/image-size/rafhaanshah/springbootcamp/latest?label=Image%20Size
 [docker-size-link]: https://hub.docker.com/r/rafhaanshah/springbootcamp
-[heroku-img]: https://heroku-badge.herokuapp.com/?app=heroku-badge
+[heroku-img]: https://img.shields.io/badge/Heroku-deployed-ffffff.svg?labelColor=591db1&logo=heroku
 [heroku-link]: https://spring-boot-camp.herokuapp.com/

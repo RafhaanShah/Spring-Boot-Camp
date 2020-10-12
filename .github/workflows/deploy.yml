@@ -25,6 +25,4 @@ jobs:
         healthcheck: ${{secrets.HEROKU_HEALTH_URL}}
         checkstring: '{"status":"UP"}'
         rollbackonhealthcheckfailed: true
-        delay: 30
-        
-        
+        delay: 60

@@ -1,4 +1,4 @@
-# This workflow will build a Docker image
+# This workflow will build a Docker Image
 # For more information see: https://docs.github.com/en/free-pro-team@latest/actions/guides/publishing-docker-images#publishing-images-to-docker-hub
 
 name: Publish Docker Image
