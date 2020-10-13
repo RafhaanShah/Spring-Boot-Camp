@@ -13,11 +13,10 @@ import java.net.URL;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class HelloControllerIntegrationTest {
+public class ApplicationIntegrationTest {
 
     @LocalServerPort
     private int port;
-
     private URL base;
 
     @Autowired
@@ -29,9 +28,8 @@ public class HelloControllerIntegrationTest {
     }
 
     @Test
-    public void getHello() throws Exception {
-        ResponseEntity<String> response = template.getForEntity(base.toString(),
-                String.class);
+    public void getHello() {
+        ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
         assertThat(response.getBody()).isEqualTo("Hello, World!");
     }
 }
