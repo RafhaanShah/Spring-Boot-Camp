@@ -1,0 +1,5 @@
+profile: dev
+
+springfox:
+  documentation:
+    enabled: true

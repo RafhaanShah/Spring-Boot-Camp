@@ -27,3 +27,4 @@ jobs:
         checkstring: '{"status":"UP"}'
         rollbackonhealthcheckfailed: true
         delay: 60
+        env_file: "heroku.env"

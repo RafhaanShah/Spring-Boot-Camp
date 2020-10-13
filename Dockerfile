@@ -9,6 +9,8 @@ USER spring:spring
 COPY --from=build /home/gradle/src/build/libs/*.jar /app/app.jar
 
 ENV PORT=8080
+ENV SPRING_PROFILES_ACTIVE=default
+
 HEALTHCHECK --interval=1m --timeout=10s \
   CMD wget --spider http://localhost:${PORT}/actuator/health || exit 1
 ENTRYPOINT ["java", "-jar", "app/app.jar"]
