@@ -6,7 +6,7 @@
 [![Docker Hub][docker-hub-img]][docker-hub-link]
 [![Heroku][heroku-img]][heroku-link]
 
-Demo [Spring Boot](https://spring.io/projects/spring-boot) application with [Docker](https://www.docker.com/) and [GitHub Actions](https://github.com/features/actions) CI, deployed on [Heroku](https://dashboard.heroku.com/).
+Demo [Spring Boot](https://spring.io/projects/spring-boot) application with [Docker](https://www.docker.com/) and [GitHub Actions](https://github.com/features/actions) CI, deployed on [Heroku](https://dashboard.heroku.com/) and pushed to [Docker Hub](https://hub.docker.com/).
 
 [github-ci-img]: https://github.com/RafhaanShah/Spring-Boot-Camp/workflows/Build%20and%20Test/badge.svg
 [github-ci-link]: https://github.com/RafhaanShah/Spring-Boot-Camp/actions?query=workflow%3A%22Build+and+Test%22
