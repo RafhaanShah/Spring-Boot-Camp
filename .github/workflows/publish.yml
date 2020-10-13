@@ -1,11 +1,14 @@
-# This workflow will build a Docker Image
+# This workflow will build and publish a Docker Image to Docker Hub
+# It will also create a release on GitHub and attach an artifact to it
 # For more information see: https://docs.github.com/en/free-pro-team@latest/actions/guides/publishing-docker-images#publishing-images-to-docker-hub
+# And: https://github.com/actions/upload-release-asset
 
 name: Publish Docker Image
 
 on:
-  release:
-    types: [published]
+  push:
+    tags:
+    - 'v*' # tags matching v*, i.e. v1.0, v20.15.10
     
 jobs:
   push_to_registry:
@@ -24,3 +27,29 @@ jobs:
         repository: rafhaanshah/springbootcamp
         tag_with_ref: true
         tags: latest
+
+    - name: Build Jar
+      run: |
+          ./gradlew bootJar --no-daemon
+
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: v${{ github.ref }}
+        draft: false
+        prerelease: false
+
+    - name: Upload Release Asset
+      id: upload-release-asset 
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: /home/gradle/src/build/libs/*.jar
+        asset_name: springbootcamp.jar
+        asset_content_type: application/zip
