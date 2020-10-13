@@ -16,7 +16,8 @@ jobs:
     - name: Checkout latest version of repository
       uses: actions/checkout@v2
     
-    - uses: akhileshns/heroku-deploy@v3.5.7
+    - name: Deploy Docker application to Heroku
+      uses: akhileshns/heroku-deploy@v3.5.7
       with:
         usedocker: true
         heroku_api_key: ${{secrets.HEROKU_API_KEY}}
