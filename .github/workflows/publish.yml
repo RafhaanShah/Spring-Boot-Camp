@@ -32,6 +32,9 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+    - name: Checkout latest version of repository
+      uses: actions/checkout@v2
+
     - name: Build JAR
       run: |
           ./gradlew bootJar --no-daemon
