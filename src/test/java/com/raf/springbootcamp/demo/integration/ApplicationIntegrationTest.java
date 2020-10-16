@@ -39,6 +39,6 @@ public class ApplicationIntegrationTest {
     @Test
     public void generateApiJson() throws Exception {
         ResponseEntity<String> response = template.getForEntity(base.toString() + "api", String.class);
-        Files.write(Paths.get("./api.json"), Objects.requireNonNull(response.getBody()).getBytes());
+        Files.write(Paths.get("./docs/api.json"), Objects.requireNonNull(response.getBody()).getBytes());
     }
 }

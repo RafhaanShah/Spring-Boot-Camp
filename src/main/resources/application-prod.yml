@@ -1,8 +1,9 @@
 profile: prod
+base-server: 'https://spring-boot-camp.herokuapp.com'
 
 springdoc:
   api-docs:
-    enabled: false
+    enabled: true
     path: /api
 
   swagger-ui:

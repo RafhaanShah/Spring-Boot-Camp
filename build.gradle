@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.raf.springbootcamp'
-version = '0.0.3-SNAPSHOT'
+version = '0.0.5-SNAPSHOT'
 sourceCompatibility = '1.8'
 
 repositories {

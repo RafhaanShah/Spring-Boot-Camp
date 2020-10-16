@@ -27,34 +27,34 @@ jobs:
         tag_with_ref: true
         tags: latest
 
-  push_to_release:
-    name: Push JAR to GitHub Release
-    runs-on: ubuntu-latest
-    
-    steps:
-    - name: Checkout latest version of repository
-      uses: actions/checkout@v2
-    
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
-
-    - name: Build JAR
-      run: |
-          ./gradlew bootJar --no-daemon
-
-    - name: Upload Release Asset
-      uses: shogo82148/actions-upload-release-asset@v1
-      with:
-        upload_url: ${{ github.event.release.upload_url }}
-        asset_path: ./build/libs/*.jar
-        asset_name: springbootcamp.jar
-        
-    - name: Download latest API spec
-      run: curl https://raw.githubusercontent.com/RafhaanShah/Spring-Boot-Camp/${{ github.event.release.tag_name }}/api.json -o release_spec.json
-    
-    - name: Upload API spec
-      uses: shogo82148/actions-upload-release-asset@v1
-      with:
-        upload_url: ${{ github.event.release.upload_url }}
-        asset_path: ./release_spec.json
-        asset_name: api.json
+#  push_to_release:
+#    name: Push JAR to GitHub Release
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#    - name: Checkout latest version of repository
+#      uses: actions/checkout@v2
+#
+#    - name: Grant execute permission for gradlew
+#      run: chmod +x gradlew
+#
+#    - name: Build JAR
+#      run: |
+#          ./gradlew bootJar --no-daemon
+#
+#    - name: Upload Release Asset
+#      uses: shogo82148/actions-upload-release-asset@v1
+#      with:
+#        upload_url: ${{ github.event.release.upload_url }}
+#        asset_path: ./build/libs/*.jar
+#        asset_name: springbootcamp.jar
+#
+#    - name: Download latest API spec
+#      run: curl https://raw.githubusercontent.com/RafhaanShah/Spring-Boot-Camp/${{ github.event.release.tag_name }}/api.json -o release_spec.json
+#
+#    - name: Upload API spec
+#      uses: shogo82148/actions-upload-release-asset@v1
+#      with:
+#        upload_url: ${{ github.event.release.upload_url }}
+#        asset_path: ./release_spec.json
+#        asset_name: api.json
