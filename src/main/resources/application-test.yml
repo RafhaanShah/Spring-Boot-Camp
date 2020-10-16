@@ -1,0 +1,13 @@
+profile: prod
+base-server: 'https://spring-boot-camp.herokuapp.com'
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /api
+
+  swagger-ui:
+    enabled: false
+    path: /swagger-ui
+    syntaxHighlight:
+      theme: monokai
