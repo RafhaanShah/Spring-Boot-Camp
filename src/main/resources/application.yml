@@ -1,5 +1,12 @@
 profile: dev
 
-springfox:
-  documentation:
+springdoc:
+  api-docs:
     enabled: true
+    path: /api
+
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui
+    syntaxHighlight:
+      theme: monokai

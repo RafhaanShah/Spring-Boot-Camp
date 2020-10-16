@@ -9,6 +9,9 @@ import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.ResponseEntity;
 
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Objects;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -31,5 +34,11 @@ public class ApplicationIntegrationTest {
     public void getHello() {
         ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
         assertThat(response.getBody()).isEqualTo("Hello, World!");
+    }
+
+    @Test
+    public void generateApiJson() throws Exception {
+        ResponseEntity<String> response = template.getForEntity(base.toString() + "api", String.class);
+        Files.write(Paths.get("./api.json"), Objects.requireNonNull(response.getBody()).getBytes());
     }
 }
