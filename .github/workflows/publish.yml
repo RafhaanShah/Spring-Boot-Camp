@@ -1,7 +1,9 @@
 # This workflow will build and publish a Docker Image to Docker Hub
 # It will also build and attach an artifact to the GitHub release
+# And sync the master branch to release
 # For more information see: https://docs.github.com/en/free-pro-team@latest/actions/guides/publishing-docker-images#publishing-images-to-docker-hub
 # And: https://github.com/shogo82148/actions-upload-release-asset
+# And: https://github.com/devmasx/merge-branch
 
 name: Publish Image and Artifact
 
@@ -26,6 +28,21 @@ jobs:
         repository: rafhaanshah/springbootcamp
         tag_with_ref: true
         tags: latest
+
+  sync_branch:
+    name: Sync master branch to release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout latest version of repository
+        uses: actions/checkout@master
+
+      - name: Merge master -> release
+        uses: devmasx/merge-branch@v1.3.0
+        with:
+          type: now
+          from_branch: master
+          target_branch: release
+          github_token: ${{ github.token }}
 
 #  push_to_release:
 #    name: Push JAR to GitHub Release
