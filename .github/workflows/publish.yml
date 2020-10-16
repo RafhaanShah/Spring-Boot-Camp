@@ -43,4 +43,15 @@ jobs:
       uses: shogo82148/actions-upload-release-asset@v1
       with:
         upload_url: ${{ github.event.release.upload_url }}
-        asset_path: /home/gradle/src/build/libs/*.jar
+        asset_path: ./build/libs/*.jar
+        asset_name: springbootcamp.jar
+        
+    - name: Download latest API spec
+      run: curl https://raw.githubusercontent.com/RafhaanShah/Spring-Boot-Camp/${{ github.event.release.tag_name }}/api.json -o release_spec.json
+    
+    - name: Upload API spec
+      uses: shogo82148/actions-upload-release-asset@v1
+      with:
+        upload_url: ${{ github.event.release.upload_url }}
+        asset_path: ./release_spec.json
+        asset_name: api.json
