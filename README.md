@@ -11,6 +11,8 @@ Demo [Spring Boot](https://spring.io/projects/spring-boot) application with [Doc
 
 Documentation built with [Spring Doc](https://springdoc.org/), using [ReDoc](https://github.com/Redocly/redoc), hosted by [GitHub Pages](https://pages.github.com/).
 
+Static landing page built using Identity by [HTML5 UP](https://html5up.net).
+
 [github-ci-img]: https://github.com/RafhaanShah/Spring-Boot-Camp/workflows/Build%20and%20Test/badge.svg
 [github-ci-link]: https://github.com/RafhaanShah/Spring-Boot-Camp/actions?query=workflow%3A%22Build+and+Test%22
 [github-version-img]: https://img.shields.io/github/v/release/rafhaanshah/Spring-Boot-Camp?label=Version

@@ -1,5 +1,8 @@
 package com.raf.springbootcamp.demo.integration;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,35 +15,40 @@ import org.springframework.test.context.ActiveProfiles;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Objects;
+import java.util.HashMap;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static java.util.Objects.requireNonNull;
 
 @ActiveProfiles({"test"})
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class ApplicationIntegrationTest {
 
+    private String baseUrl;
+
     @LocalServerPort
     private int port;
-    private URL base;
 
     @Autowired
     private TestRestTemplate template;
 
     @BeforeEach
     public void setUp() throws Exception {
-        this.base = new URL("http://localhost:" + port + "/");
+        baseUrl = new URL("http://localhost:" + port + "/").toString();
     }
 
     @Test
-    public void getHello() {
-        ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
-        assertThat(response.getBody()).isEqualTo("Hello, World!");
+    public void testHealthCheck() throws JsonProcessingException {
+        HashMap<String, String> map = new HashMap<>();
+        map.put("status", "UP");
+        String expected = new ObjectMapper().writeValueAsString(map);
+
+        ResponseEntity<String> response = template.getForEntity(baseUrl + "/actuator/health", String.class);
+        Assertions.assertEquals(expected, response.getBody());
     }
 
     @Test
-    public void generateApiJson() throws Exception {
-        ResponseEntity<String> response = template.getForEntity(base.toString() + "api", String.class);
-        Files.write(Paths.get("./docs/api.json"), Objects.requireNonNull(response.getBody()).getBytes());
+    public void testGeneratingApiJson() throws Exception {
+        ResponseEntity<String> response = template.getForEntity(baseUrl + "api", String.class);
+        Files.write(Paths.get("./docs/api.json"), requireNonNull(response.getBody()).getBytes());
     }
 }

@@ -1,4 +1,4 @@
-package com.raf.springbootcamp.demo;
+package com.raf.springbootcamp.demo.config;
 
 import io.swagger.v3.oas.models.ExternalDocumentation;
 import io.swagger.v3.oas.models.OpenAPI;
@@ -31,7 +31,7 @@ public class SpringDocConfig {
         return new OpenAPI()
                 .addServersItem(new Server().url(profile.equals("dev") ? baseServer + ":" + port : baseServer))
                 .info(new Info().title("Spring Boot Demo")
-                        .description("Spring Boot sample application")
+                        .description("Spring Boot Sample Application")
                         .version(buildProperties.getVersion())
                         .license(new License().name("License").url("https://github.com/RafhaanShah/Spring-Boot-Camp")))
                 .externalDocs(new ExternalDocumentation()
