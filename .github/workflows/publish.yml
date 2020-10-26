@@ -55,9 +55,6 @@ jobs:
 #    - name: Checkout latest version of repository
 #      uses: actions/checkout@v2
 #
-#    - name: Grant execute permission for gradlew
-#      run: chmod +x gradlew
-#
 #    - name: Build JAR
 #      run: |
 #          ./gradlew bootJar --no-daemon
