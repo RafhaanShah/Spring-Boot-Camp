@@ -31,7 +31,7 @@ public class SpringDocConfig {
         return new OpenAPI()
                 .addServersItem(new Server().url(profile.equals("dev") ? baseServer + ":" + port : baseServer))
                 .info(new Info().title("Spring Boot Demo")
-                        .description("Spring Boot Sample Application")
+                        .description("Spring Boot Demo Application")
                         .version(buildProperties.getVersion())
                         .license(new License().name("License").url("https://github.com/RafhaanShah/Spring-Boot-Camp")))
                 .externalDocs(new ExternalDocumentation()

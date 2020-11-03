@@ -9,7 +9,7 @@
 
 Demo [Spring Boot](https://spring.io/projects/spring-boot) application with [Docker](https://www.docker.com/) and [GitHub Actions](https://github.com/features/actions) CI, deployed on [Heroku](https://dashboard.heroku.com/) and pushed to [Docker Hub](https://hub.docker.com/).
 
-Documentation built with [Spring Doc](https://springdoc.org/), using [ReDoc](https://github.com/Redocly/redoc), hosted by [GitHub Pages](https://pages.github.com/).
+[OpenAPI](https://swagger.io/specification/) documentation built with [Spring Doc](https://springdoc.org/), displayed [ReDoc](https://github.com/Redocly/redoc), hosted by [GitHub Pages](https://pages.github.com/).
 
 Static landing page built using Identity by [HTML5 UP](https://html5up.net).
 
@@ -24,4 +24,4 @@ Static landing page built using Identity by [HTML5 UP](https://html5up.net).
 [heroku-img]: https://img.shields.io/badge/Heroku-deployed-ffffff.svg?labelColor=591db1&logo=heroku
 [heroku-link]: https://spring-boot-camp.herokuapp.com/
 [openapi-img]: https://img.shields.io/swagger/valid/3.0?label=OpenAPI&specUrl=https%3A%2F%2Fraw.githubusercontent.com%2FRafhaanShah%2FSpring-Boot-Camp%2Frelease%2Fdocs%2Fapi.json
-[openapi-link]: https://swagger.io/specification/
+[openapi-link]: https://raw.githubusercontent.com/RafhaanShah/Spring-Boot-Camp/release/docs/api.json
